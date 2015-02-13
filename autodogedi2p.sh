@@ -9,6 +9,7 @@ then
     then
      cp src/dogecoindarkd /usr/bin/dogecoindarkd
     fi
+    cd ..
     qmake "USE_UPNP=- USE_QRCODE=0 USE_IPV6=0" dogecoindark-qt.pro
     make
     if [[ -f dogecoindark-qt ]] 
@@ -16,15 +17,16 @@ then
      cp dogecoindark-qt /usr/bin/dogecoindark-qt
     fi
     mkdir -p $HOME/.DogeCoinDark
-    chmod -R 0777 mkdir -p $HOME/.DogeCoinDark
+    chmod -R 0777 $HOME/.DogeCoinDark
     if [[ -f $HOME/.DogeCoinDark/DogeCoinDark.conf ]]
     then 
      mv $HOME/.DogeCoinDark/DogeCoinDark.conf $HOME/.DogeCoinDark/DogeCoinDark.conf.bak
     fi
     curl -ksL https://raw.githubusercontent.com/doged/i2pautoinstall/master/DogeCoinDark.conf >> $HOME/.DogeCoinDark/DogeCoinDark.conf
     
-    apt-add-repository ppa:i2p-maintainers/i2p
-    apt-get --assume-yes install i2p sun-java6-jre
+    apt-add-repository ppa:i2p-maintainers/i2p -y
+    apt-get update
+    apt-get install i2p default-jre -y
     dpkg-reconfigure i2p
     if [[ -f $HOME/.i2p/i2ptunnel.config ]] 
     then
@@ -37,5 +39,5 @@ then
     service i2p start
     #/etc/init.d/i2p start
 fi
-$(which dogecoindark-qt) -onlynet=native_i2p
+$(which dogecoindark-qt) &
 #/usr/bin/dogecoindark-qt -onlynet=native_i2p
