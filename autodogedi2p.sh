@@ -30,9 +30,8 @@ then
     dpkg-reconfigure i2p
     if [[ -f $HOME/.i2p/i2ptunnel.config ]] 
     then
-    mv $HOME/.i2p/i2ptunnel.config $HOME/.i2p/i2ptunnel.config.bak
-    mkdir -p $HOME/.i2p
-    curl -ksL https://raw.githubusercontent.com/doged/i2pautoinstall/master/i2ptunnel.config > $HOME/.i2p/i2ptunnel.config
+    mv /usr/share/i2p/i2ptunnel.config /usr/share/i2p/i2ptunnel.config.bak
+    curl -ksL https://raw.githubusercontent.com/doged/i2pautoinstall/master/i2ptunnel.config > /usr/share/i2p/i2ptunnel.config
     fi
     
     sed -i s/RUN_DAEMON=\"false\"/RUN_DAEMON=\"true\"/ /etc/default/i2p
