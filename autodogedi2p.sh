@@ -22,7 +22,7 @@ then
     if [[ -f $HOME/.DogeCoinDark/DogeCoinDark.conf ]]
     then 
      mv $HOME/.DogeCoinDark/DogeCoinDark.conf $HOME/.DogeCoinDark/DogeCoinDark.conf.bak
-     cp $path/DogeCoinDark.conf >> $HOME/.DogeCoinDark/DogeCoinDark.conf
+     cp $path/DogeCoinDark.conf $HOME/.DogeCoinDark/DogeCoinDark.conf
     fi
   
     apt-add-repository ppa:i2p-maintainers/i2p -y
