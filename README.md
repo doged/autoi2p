@@ -1,3 +1,5 @@
+![i2P-DOGED](http://i.imgur.com/kHs8cF3.png)
+
 # autoi2p linux doged wallet anon auto installer!
 doged wallet/anon i2p network install
 
